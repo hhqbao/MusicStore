@@ -26,13 +26,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">MusicStore.Web</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="Index" class="menu-home-link">
+                            <span class="glyphicon glyphicon-home"></span>
+                        </a>
+                    </li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">My Musics</a></li>
+                    <li class="separator"><span></span></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Categories</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">Artists</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Albums</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>

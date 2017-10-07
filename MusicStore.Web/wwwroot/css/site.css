@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* Wrapping element */
@@ -25,6 +26,60 @@
 #qrCode {
     margin: 15px;
 }
+
+/* Override Bootstrap */
+.navbar {
+    min-height: unset;
+    padding: 8px 0;
+}
+
+.navbar-inverse {
+    background-color: #fc2c12;
+    border-color: #fc2c12;
+}
+
+    .navbar-inverse .navbar-nav > li.separator {
+        padding: 0 3px;
+        padding-top: 5px;
+    }
+
+        .navbar-inverse .navbar-nav > li.separator > span {
+            display: block;
+            width: 1px;
+            min-height: 20px;
+            background-color: #000000;
+        }
+
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #fff;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 15px;
+        height: 30px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+        .navbar-inverse .navbar-nav > li > a.active {
+            background-image: url(../images/active.gif);
+        }
+
+        .navbar-inverse .navbar-nav > li > a:hover {
+            background-image: url(../images/active.gif);
+        }
+
+        .navbar-inverse .navbar-nav > li > a.menu-home-link {
+            color: #000000;
+            font-size: 18px;
+            padding: 0;
+            margin-right: 10px;
+        }
+
+            .navbar-inverse .navbar-nav > li > a.menu-home-link:hover {
+                background-image: unset;
+            }
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
