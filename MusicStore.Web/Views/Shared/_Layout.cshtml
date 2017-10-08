@@ -7,12 +7,18 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link href="~/css/font-awesome.css" rel="stylesheet" />
+        <link href="~/css/slick.css" rel="stylesheet" />
+        <link href="~/css/slick-theme.css" rel="stylesheet" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/font-awesome.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/slick.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/slick-theme.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
@@ -40,21 +46,77 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="About">Artists</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Albums</a></li>
                 </ul>
-                @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
     </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2017 - MusicStore.Web</p>
-        </footer>
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="#">
+                        <img src="images/logo.png" />
+                    </a>
+                </div>
+                <div class="col-md-5">
+                    <div class="input-group main-search">
+                        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-secondary" type="button">Search</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    @await Html.PartialAsync("_LoginPartial")
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-body-wrapper" style="height: 800px">
+        <div class="container">
+            <div class="body-content">
+                <ul class="main-navigation-bar">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Favorites</a></li>
+                    <li><a href="#">Artists</a></li>
+                    <li><a href="#">Specials</a></li>
+                    <li><a href="#">Recent-Albums</a></li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+                <div class="main-slideshow">
+                    <div>
+                        <a href="#">
+                            <img src="images/slider1.jpg" />
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img src="images/slider2.jpg" />
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img src="images/slider3.jpg" />
+                        </a>
+                    </div>
+                </div>
+                @RenderBody()
+            </div>
+        </div>
     </div>
+
+    @*<div class="container body-content">
+            <hr />
+            <footer>
+                <p>&copy; 2017 - MusicStore.Web</p>
+            </footer>
+        </div>*@
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/slick.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
@@ -70,8 +132,24 @@
                 crossorigin="anonymous"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
+        <script src="~/js/slick.min.js" asp-append-version="true"></script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
+
+    <script>
+        $(document).ready(function () {
+            $(".main-slideshow").slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear',
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: false
+            });
+        });
+    </script>
 
     @RenderSection("Scripts", required: false)
 </body>

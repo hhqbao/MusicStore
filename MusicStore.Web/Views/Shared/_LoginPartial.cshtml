@@ -9,10 +9,18 @@
     <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-            </li>
-            <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log out</button>
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                   asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">
+                    Hello @UserManager.GetUserName(User)!
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="btn btn-link" href="#">Action</a>
+                    <a class="btn btn-link" href="#">Another action</a>
+                    <a class="btn btn-link" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <button type="submit" class="btn btn-link">Log out</button>
+                </div>
             </li>
         </ul>
     </form>
