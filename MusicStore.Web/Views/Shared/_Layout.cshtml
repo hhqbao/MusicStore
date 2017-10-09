@@ -73,7 +73,7 @@
         </div>
     </header>
 
-    <div class="main-body-wrapper" style="height: 800px">
+    <div class="main-body-wrapper">
         <div class="container">
             <div class="body-content">
                 <ul class="main-navigation-bar">
@@ -101,17 +101,14 @@
                         </a>
                     </div>
                 </div>
+                <div class="main-content">
+                    @Html.Partial("_ContentBlock")
+                    @Html.Partial("_ContentBlock")
+                </div>
                 @RenderBody()
             </div>
         </div>
     </div>
-
-    @*<div class="container body-content">
-            <hr />
-            <footer>
-                <p>&copy; 2017 - MusicStore.Web</p>
-            </footer>
-        </div>*@
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -139,14 +136,14 @@
     <script>
         $(document).ready(function () {
             $(".main-slideshow").slick({
-                dots: true,
                 infinite: true,
                 speed: 500,
                 fade: true,
                 cssEase: 'linear',
                 autoplay: true,
                 autoplaySpeed: 2000,
-                arrows: false
+                arrows: false,
+                dots: false
             });
         });
     </script>
