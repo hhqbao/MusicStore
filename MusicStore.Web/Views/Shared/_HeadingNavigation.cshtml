@@ -1,0 +1,39 @@
+﻿@using MusicStore.Models.Entities
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="menu-home-link">
+                        <span class="glyphicon glyphicon-home"></span>
+                    </a>
+                </li>
+
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">My Musics</a></li>
+                    <li class="separator"><span></span></li>
+                }
+
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Categories</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="About">Artists</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Contact">Albums</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

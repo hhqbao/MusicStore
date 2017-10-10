@@ -23,32 +23,7 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a asp-area="" asp-controller="Home" asp-action="Index" class="menu-home-link">
-                            <span class="glyphicon glyphicon-home"></span>
-                        </a>
-                    </li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">My Musics</a></li>
-                    <li class="separator"><span></span></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Categories</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">Artists</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Albums</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    @await Html.PartialAsync("_HeadingNavigation")
 
     <header>
         <div class="container">
@@ -102,13 +77,81 @@
                     </div>
                 </div>
                 <div class="main-content">
-                    @Html.Partial("_ContentBlock")
-                    @Html.Partial("_ContentBlock")
+                    @RenderBody()
                 </div>
-                @RenderBody()
             </div>
         </div>
     </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="footer-item">
+                        <h4>Information</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Legal Notice</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer-item">
+                        <h4>Our Offers</h4>
+                        <ul>
+                            <li><a href="#">New Products</a></li>
+                            <li><a href="#">Top Sellers</a></li>
+                            <li><a href="#">Specials</a></li>
+                            <li><a href="#">Products</a></li>
+                            <li><a href="#">Comments</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer-item">
+                        <h4>Your Account</h4>
+                        <ul>
+                            <li><a href="#">Your Account</a></li>
+                            <li><a href="#">Personal Info</a></li>
+                            <li><a href="#">Prices</a></li>
+                            <li><a href="#">Address</a></li>
+                            <li><a href="#">Locations</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer-item">
+                        <h4>Get in touch</h4>
+                        <ul class="social-media">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-rss-square" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
