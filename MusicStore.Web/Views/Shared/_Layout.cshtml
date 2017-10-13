@@ -59,23 +59,9 @@
                     <li><a href="#">Recent-Albums</a></li>
                     <li><a href="#">Feedback</a></li>
                 </ul>
-                <div class="main-slideshow">
-                    <div>
-                        <a href="#">
-                            <img src="images/slider1.jpg" />
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#">
-                            <img src="images/slider2.jpg" />
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#">
-                            <img src="images/slider3.jpg" />
-                        </a>
-                    </div>
-                </div>
+
+                @Html.Partial("_SlideShow")
+
                 <div class="main-content">
                     @RenderBody()
                 </div>
@@ -157,6 +143,8 @@
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/slick.js"></script>
+        <script src="~/lib/angular/angular.js"></script>
+        <script src="~/lib/angular-ui-router/release/angular-ui-router.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
@@ -174,6 +162,8 @@
         </script>
         <script src="~/js/slick.min.js" asp-append-version="true"></script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
+        <script src="~/lib/angular/angular.min.js" asp-append-version="true"></script>
+        <script src="~/lib/angular-ui-router/release/angular-ui-router.min.js" asp-append-version="true"></script>
     </environment>
 
     <script>
@@ -191,6 +181,10 @@
         });
     </script>
 
+    <script src="~/app/shared/common.module.js"></script>
+    <script src="~/app/app.js"></script>
+    <script src="~/app/components/personal/personalMusicListController.js"></script>
+    <script src="~/app/components/personal/uploadMusicFormController.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
