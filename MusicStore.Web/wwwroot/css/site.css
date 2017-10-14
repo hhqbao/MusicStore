@@ -214,6 +214,15 @@ footer {
             .footer-item > ul.social-media > li > a:hover {
                 color: #FC3019;
             }
+
+.file-upload {
+    position: relative;
+}
+
+    .file-upload > input[type=file] {
+        position: absolute;
+        left: -9999px;
+    }    
 /* Override Bootstrap */
 .dropdown-divider {
     height: 0;

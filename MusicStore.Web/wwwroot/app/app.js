@@ -14,7 +14,7 @@
             controller: "personalMusicListController"
         }).state("upload-music", {
             url: "/upload-music",
-            templateUrl: "/app/views/personal/uploadMusicForm.html",
+            templateUrl: "/app/views/personal/uploadMusicFormView.html",
             controller: "uploadMusicFormController"
         });
     }

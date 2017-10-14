@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\app\services\" />
+    <Folder Include="wwwroot\uploads\songs\" />
   </ItemGroup>
 
 </Project>
