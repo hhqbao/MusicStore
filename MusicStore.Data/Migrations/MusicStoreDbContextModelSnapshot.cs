@@ -207,6 +207,37 @@ namespace MusicStore.Data.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("MusicStore.Models.Entities.Song", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AuthorId");
+
+                    b.Property<int>("CategoryId");
+
+                    b.Property<string>("FileUrl")
+                        .IsRequired();
+
+                    b.Property<string>("Lyric");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Songs");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
@@ -248,6 +279,24 @@ namespace MusicStore.Data.Migrations
                 {
                     b.HasOne("MusicStore.Models.Entities.ApplicationUser")
                         .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("MusicStore.Models.Entities.Song", b =>
+                {
+                    b.HasOne("MusicStore.Models.Entities.Author", "Author")
+                        .WithMany("Songs")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("MusicStore.Models.Entities.Category", "Category")
+                        .WithMany("Songs")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("MusicStore.Models.Entities.ApplicationUser", "ApplicationUser")
+                        .WithMany("Songs")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

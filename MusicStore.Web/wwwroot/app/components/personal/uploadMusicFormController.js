@@ -1,9 +1,9 @@
 ﻿(function (app) {
     app.controller("uploadMusicFormController", uploadMusicFormController);
 
-    uploadMusicFormController.$inject = ["$scope", "apiService"];
+    uploadMusicFormController.$inject = ["$scope", "apiService", "$location", "toastService"];
 
-    function uploadMusicFormController($scope, apiService) {
+    function uploadMusicFormController($scope, apiService, $location, toastService) {
         $scope.categories = [];
         $scope.authors = [];
         $scope.isUploading = {
@@ -19,6 +19,38 @@
         $scope.fileChanged = fileChanged;
 
         $scope.removeFile = removeFile;
+
+        $scope.submitForm = submitForm;
+
+        $scope.cancelForm = cancelForm;
+
+        function submitForm() {
+            var formData = new FormData();
+
+            formData.append("title", $scope.song.title);
+            formData.append("categoryId", $scope.song.categoryId);
+            formData.append("authorId", $scope.song.authorId);
+            formData.append("fileUrl", $scope.song.fileUrl);
+            formData.append("lyric", $scope.song.lyric);
+
+            apiService.post("/Api/Songs/CreateSong", formData, submitSuccess, submitFailed);
+
+            function submitSuccess() {
+                toastService.success("Create New Song Successfully!", "Dialog Box");
+                $location.path("/personal-music");
+            }
+
+            function submitFailed() {
+                toastService.error("Failed To Create New Song!", "Dialog Box");
+            }
+        }
+
+        function cancelForm() {
+            if ($scope.song.fileUrl !== null)
+                $scope.removeFile();
+
+            $location.path("/personal-music");
+        }
 
         function fileChanged(element) {
             var file = element.files[0];

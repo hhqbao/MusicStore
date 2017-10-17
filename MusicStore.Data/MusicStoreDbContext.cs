@@ -9,6 +9,7 @@ namespace MusicStore.Data
     {
         public DbSet<Author> Authors { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Song> Songs { get; set; }
 
         public MusicStoreDbContext(DbContextOptions<MusicStoreDbContext> options)
             : base((DbContextOptions)options)
@@ -24,6 +25,7 @@ namespace MusicStore.Data
         {
             builder.ApplyConfiguration(new AuthorConfiguration());
             builder.ApplyConfiguration(new CategoryConfiguration());
+            builder.ApplyConfiguration(new SongConfiguration());
 
             base.OnModelCreating(builder);
             // Customize the ASP.NET Identity model and override the defaults if needed.

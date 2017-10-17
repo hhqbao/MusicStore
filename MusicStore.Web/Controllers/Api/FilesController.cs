@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MusicStore.Common;
@@ -7,6 +8,7 @@ using System.IO;
 
 namespace MusicStore.Web.Controllers.Api
 {
+    [Authorize]
     [Produces("application/json")]
     [Route("api/Files")]
     public class FilesController : Controller
@@ -30,7 +32,7 @@ namespace MusicStore.Web.Controllers.Api
 
                 string imageUrl = String.Format("uploads/songs/{0}", imageName);
 
-                MusicStoreUpload.UploadSingleFile(file, uploadFolder, imageName);
+                FileManagement.UploadSingleFile(file, uploadFolder, imageName);
 
                 return Ok(imageUrl);
             }
@@ -48,9 +50,9 @@ namespace MusicStore.Web.Controllers.Api
             {
                 var dir = Path.Combine(_hostingEnvironment.WebRootPath, fileUrl);
 
-                if (System.IO.File.Exists(dir))
+                if (FileManagement.IsExisting(dir))
                 {
-                    System.IO.File.Delete(dir);
+                    FileManagement.DeleteFile(dir);
 
                     return Ok();
                 }

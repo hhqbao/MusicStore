@@ -222,7 +222,31 @@ footer {
     .file-upload > input[type=file] {
         position: absolute;
         left: -9999px;
-    }    
+    }
+
+select.ng-dirty.ng-invalid,
+input.ng-dirty.ng-invalid {
+    border: solid 1px red;
+}
+
+.text-middle {
+    vertical-align: middle !important;
+}
+
+.pos-relative {
+    position: relative;
+}
+
+img.audio-gif {
+    position: absolute;
+    right: 15px;
+    top: 9px;
+    width: 20px;
+}
+
+.personal-music-wrapper {
+    padding-top: 20px;
+}
 /* Override Bootstrap */
 .dropdown-divider {
     height: 0;

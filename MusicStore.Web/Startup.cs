@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using MusicStore.Data;
 using MusicStore.Models.Entities;
 using MusicStore.Web.Services;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace MusicStore.Web
 {
@@ -32,7 +34,11 @@ namespace MusicStore.Web
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

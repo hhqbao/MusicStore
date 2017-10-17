@@ -1,3 +1,68 @@
-﻿<div>
-    {{testing}}
+﻿<div class="personal-music-wrapper">   
+    <audio class="hidden" id="main-audio" controls>
+        <source type="audio/mpeg" />
+    </audio>
+    
+    <p>
+        <label class="control-label">Click to change play mode:</label>
+        <button class="btn btn-sm" 
+                ng-class="getBtnPlayModeClass()"
+                ng-click="rotatePlayingStatus()">
+            <span ng-if="mainAudio.playingStatus === PLAYING_STATUS.normal">
+                <span class="glyphicon glyphicon-play"></span>
+                Playing Normal
+            </span>
+            <span ng-if="mainAudio.playingStatus === PLAYING_STATUS.loopSingle">
+                <span class="glyphicon glyphicon-repeat"></span>
+                Looping Single
+            </span>
+            <span ng-if="mainAudio.playingStatus === PLAYING_STATUS.loopAll">
+                <span class="glyphicon glyphicon-list"></span>
+                Looping All
+            </span>
+        </button>
+    </p>
+
+    <table class="table table-hover table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Song Title</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="song in songs track by song.id">
+                <td class="text-middle pos-relative">
+                    {{song.title}}
+                    <img ng-if="song === currentPlayingSong && mainAudio.isPlaying === true" src="../../../images/audio_animatio_dribbble.gif" class="audio-gif" />
+                </td>
+                <td class="text-middle">
+                    {{song.author.name}}
+                </td>
+                <td class="text-middle">
+                    {{song.category.name}}
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-success"
+                            ng-if="mainAudio.isPlaying === false || song != currentPlayingSong"
+                            ng-click="playSong(song)">
+                        <span class="glyphicon glyphicon-play"></span>
+                        Play
+                    </button>
+                    <button class="btn btn-sm btn-info"
+                            ng-if="mainAudio.isPlaying === true && song === currentPlayingSong"
+                            ng-click="pauseSong()">
+                        <span class="glyphicon glyphicon-pause"></span>
+                        Pause
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                        <span class="glyphicon glyphicon-trash"></span>
+                        Remove
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
