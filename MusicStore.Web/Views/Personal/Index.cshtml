@@ -4,22 +4,37 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row personal-page-wrapper" ng-app="musicStore">
-    <div class="col-md-3">
+    <div class="col-md-3 bottom-navigation">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link active" ui-sref="personal-music">My Musics</a>
+                <a class="nav-link text-center" ui-sref="personal-music">
+                    <span class="hidden-xs">My Musics</span>
+                    <span class="visible-xs glyphicon glyphicon-music"></span>
+                </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">My Playlist</a>
+                <a class="nav-link text-center" href="#">
+                    <span class="hidden-xs">My Playlist</span>
+                    <span class="visible-xs glyphicon glyphicon-list"></span>
+                </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Notifications</a>
+                <a class="nav-link text-center" href="#">
+                    <span class="hidden-xs">Notifications</span>
+                    <span class="visible-xs glyphicon glyphicon-inbox"></span>
+                </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" ui-sref="upload-music">Upload Music</a>
+                <a class="nav-link text-center" ui-sref="upload-music">
+                    <span class="hidden-xs">Upload Music</span>
+                    <span class="visible-xs glyphicon glyphicon-upload"></span>
+                </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">My Detail</a>
+                <a class="nav-link text-center" href="#">
+                    <span class="hidden-xs">My Detail</span>
+                    <span class="visible-xs glyphicon glyphicon-info-sign"></span>
+                </a>
             </li>
         </ul>
     </div>

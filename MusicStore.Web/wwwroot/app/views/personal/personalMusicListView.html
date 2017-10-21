@@ -27,8 +27,8 @@
         <thead>
             <tr>
                 <th>Song Title</th>
-                <th>Author</th>
-                <th>Category</th>
+                <th class="hidden-xs">Author</th>
+                <th class="hidden-xs">Category</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -38,10 +38,10 @@
                     {{song.title}}
                     <img ng-if="song === currentPlayingSong && mainAudio.isPlaying === true" src="../../../images/audio_animatio_dribbble.gif" class="audio-gif" />
                 </td>
-                <td class="text-middle">
+                <td class="text-middle hidden-xs">
                     {{song.author.name}}
                 </td>
-                <td class="text-middle">
+                <td class="text-middle hidden-xs">
                     {{song.category.name}}
                 </td>
                 <td>
@@ -49,17 +49,17 @@
                             ng-if="mainAudio.isPlaying === false || song != currentPlayingSong"
                             ng-click="playSong(song)">
                         <span class="glyphicon glyphicon-play"></span>
-                        Play
+                        <span class="hidden-xs">Play</span>
                     </button>
                     <button class="btn btn-sm btn-info"
                             ng-if="mainAudio.isPlaying === true && song === currentPlayingSong"
                             ng-click="pauseSong()">
                         <span class="glyphicon glyphicon-pause"></span>
-                        Pause
+                        <span class="hidden-xs">Pause</span>
                     </button>
                     <button class="btn btn-sm btn-danger">
                         <span class="glyphicon glyphicon-trash"></span>
-                        Remove
+                        <span class="hidden-xs">Remove</span>
                     </button>
                 </td>
             </tr>

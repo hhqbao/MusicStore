@@ -30,21 +30,21 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 col-xs-7 col-sm-7">
                     <a href="#">
-                        <img src="images/logo.png" />
+                        <img src="images/logo.png" class="web-logo" />
                     </a>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-3 col-xs-5 col-sm-5 col-md-push-5">
+                    @await Html.PartialAsync("_LoginPartial")
+                </div>
+                <div class="col-md-5 col-xs-12 col-sm-12 col-md-pull-3">
                     <div class="input-group main-search">
                         <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
                         <span class="input-group-btn">
                             <button class="btn btn-secondary" type="button">Search</button>
                         </span>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    @await Html.PartialAsync("_LoginPartial")
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-sm-3">
                     <div class="footer-item">
                         <h4>Information</h4>
                         <ul>
@@ -86,7 +86,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-sm-3">
                     <div class="footer-item">
                         <h4>Our Offers</h4>
                         <ul>
@@ -98,7 +98,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-sm-3">
                     <div class="footer-item">
                         <h4>Your Account</h4>
                         <ul>
@@ -110,7 +110,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-sm-3">
                     <div class="footer-item">
                         <h4>Get in touch</h4>
                         <ul class="social-media">

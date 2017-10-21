@@ -11,8 +11,14 @@
             <li>
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                    asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">
-                    Hello @UserManager.GetUserName(User)!
-                    <i class="fa fa-bars" aria-hidden="true"></i>
+                    <span class="hidden-xs hidden-sm">
+                        Hello @UserManager.GetUserName(User)!
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </span>
+
+                    <span class="btn btn-primary visible-sm visible-xs">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="btn btn-link" href="#">Action</a>
@@ -27,7 +33,7 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right user-menu">
         <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
         <li><a asp-area="" asp-controller="Account" asp-action="Login">Log in</a></li>
     </ul>
